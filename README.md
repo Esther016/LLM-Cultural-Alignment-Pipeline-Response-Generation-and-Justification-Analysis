@@ -48,7 +48,6 @@ The main justification-analysis result layers are:
 +-- requirements.txt                        # Dependency manifest
 +-- Data Sample/                            # Sample generation inputs / outputs
 +-- justification_analysis/
-    +-- README.md
     +-- pipeline/
     |   +-- 01_run_core_from_rdata.py
     |   +-- 02_postprocess_final_tables.py
@@ -57,7 +56,7 @@ The main justification-analysis result layers are:
     +-- config/
     |   +-- config_justification.json
     |   +-- model_metadata.csv
-    |   \-- AllQuestions.xlsx
+    |   |-- AllQuestions.xlsx (individual)
     +-- results/
     |   +-- main_tables/
     |   +-- main_figures/
