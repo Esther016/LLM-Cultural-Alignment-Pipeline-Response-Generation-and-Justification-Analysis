@@ -1,0 +1,22 @@
+﻿{
+  "rdata_path": "data_use/data_use/data_use_long_v1.Rdata",
+  "output_root": "outputs",
+  "core_subdir": "core",
+  "postprocessed_subdir": "postprocessed",
+  "plots_subdir": "plots",
+  "diagnostics_subdir": "diagnostics",
+  "legacy_subdir": "legacy",
+  "min_total_docs": 3000,
+  "min_models": 3,
+  "min_choices": 3,
+  "min_cell_n": 8,
+  "min_within_cells": 100,
+  "min_pressure_pairs": 30,
+  "min_crosslingual_pairs": 200,
+  "min_model_cells": 5,
+  "min_model_pairs": 20,
+  "run_g2": true,
+  "run_g4": true,
+  "keep_legacy_outputs": true,
+  "g2_audit_csv": ""
+}

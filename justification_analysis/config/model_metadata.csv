@@ -1,0 +1,83 @@
+model,provider,origin_group,family_group,open_closed,reasoning_profile,notes
+ByteDance-Seed/Seed-OSS-36B-Instruct,ByteDance,Chinese,Doubao / Seed,open_weight,general,
+DeepSeek-R1,DeepSeek,Chinese,DeepSeek,open_weight,reasoning_specialized,
+DeepSeek-V3,DeepSeek,Chinese,DeepSeek,open_weight,general,
+DeepSeek-V3.1-Fast,DeepSeek,Chinese,DeepSeek,open_weight,general,
+DeepSeek-V3.1-Terminus,DeepSeek,Chinese,DeepSeek,open_weight,general,
+Kimi-K2-0905,Moonshot AI,Chinese,Kimi,closed_api,general,
+LongCat-Flash-Chat,Meituan,Chinese,LongCat,open_weight,lightweight_general,
+MiniMaxAI/MiniMax-M1-80k,MiniMax,Chinese,MiniMax,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+MiniMaxAI/MiniMax-M2,MiniMax,Chinese,MiniMax,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+Qwen/Qwen3-Omni-30B-A3B-Instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+Qwen/Qwen3-Omni-30B-A3B-Thinking,Alibaba Cloud,Chinese,Qwen,open_weight,reasoning_specialized,
+THUDM/GLM-4-32B-0414,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
+THUDM/GLM-4-9B-0414,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
+claude-3-5-haiku-20241022,Anthropic,Western,Claude,closed_api,lightweight_general,
+claude-3-7-sonnet-20250219,Anthropic,Western,Claude,closed_api,general,
+claude-3-haiku-20240307,Anthropic,Western,Claude,closed_api,lightweight_general,
+claude-haiku-4-5,Anthropic,Western,Claude,closed_api,lightweight_general,
+claude-opus-4-0,Anthropic,Western,Claude,closed_api,general,
+claude-opus-4-6,Anthropic,Western,Claude,closed_api,general,
+deepseek-ai/DeepSeek-V2.5,DeepSeek,Chinese,DeepSeek,open_weight,general,
+deepseek-v3.2,DeepSeek,Chinese,DeepSeek,open_weight,general,
+deepseek-v3.2-think,DeepSeek,Chinese,DeepSeek,open_weight,general,
+doubao-seed-1-6,ByteDance,Chinese,Doubao / Seed,closed_api,general,
+doubao-seed-1-6-flash,ByteDance,Chinese,Doubao / Seed,closed_api,lightweight_general,
+doubao-seed-1-6-thinking,ByteDance,Chinese,Doubao / Seed,closed_api,reasoning_specialized,
+doubao-seed-1-8,ByteDance,Chinese,Doubao / Seed,closed_api,general,
+doubao-seed-2-0-pro,ByteDance,Chinese,Doubao / Seed,closed_api,general,
+ernie-4.5,Baidu,Chinese,ERNIE,closed_api,general,
+ernie-4.5-turbo-latest,Baidu,Chinese,ERNIE,closed_api,general,
+ernie-5.0-thinking-preview,Baidu,Chinese,ERNIE,closed_api,reasoning_specialized,
+ernie-x1-turbo-32k-preview,Baidu,Chinese,ERNIE,closed_api,general,
+ernie-x1.1-preview,Baidu,Chinese,ERNIE,closed_api,general,
+gemini-2.0-flash,Google,Western,Gemini,closed_api,lightweight_general,
+gemini-2.5-flash,Google,Western,Gemini,closed_api,lightweight_general,
+gemini-2.5-pro,Google,Western,Gemini,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+gemini-3-pro-preview,Google,Western,Gemini,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+gemini-3.1-pro-preview,Google,Western,Gemini,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+glm-4.5,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
+glm-4.5-air,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+glm-4.5-flash,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+glm-5,Zhipu / THUDM,Chinese,GLM,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
+gpt-4.1,OpenAI,Western,GPT/o,closed_api,general,
+gpt-4.1-mini,OpenAI,Western,GPT/o,closed_api,lightweight_general,
+gpt-4o,OpenAI,Western,GPT/o,closed_api,general,
+gpt-5,OpenAI,Western,GPT/o,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+gpt-5-mini,OpenAI,Western,GPT/o,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+gpt-5.2,OpenAI,Western,GPT/o,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+grok-3-mini,xAI,Western,Grok,closed_api,lightweight_general,
+grok-4,xAI,Western,Grok,closed_api,mixed_or_unknown,Reasoning behavior may be integrated rather than exposed as a separate SKU
+grok-4-1-fast-non-reasoning,xAI,Western,Grok,closed_api,general,
+grok-4-1-fast-reasoning,xAI,Western,Grok,closed_api,reasoning_specialized,
+grok-4-fast-non-reasoning,xAI,Western,Grok,closed_api,general,
+grok-4-fast-reasoning,xAI,Western,Grok,closed_api,reasoning_specialized,
+hunyuan-2.0-instruct-20251111,Tencent,Chinese,Hunyuan,closed_api,general,
+hunyuan-2.0-thinking-20251109,Tencent,Chinese,Hunyuan,closed_api,reasoning_specialized,
+hunyuan-a13b,Tencent,Chinese,Hunyuan,closed_api,general,
+hunyuan-lite,Tencent,Chinese,Hunyuan,closed_api,lightweight_general,
+hunyuan-standard,Tencent,Chinese,Hunyuan,closed_api,general,
+hunyuan-t1-latest,Tencent,Chinese,Hunyuan,closed_api,general,
+hunyuan-turbos-latest,Tencent,Chinese,Hunyuan,closed_api,general,
+inclusionAI/Ling-flash-2.0,InclusionAI (Ant-backed),Chinese,Ling / Ring,open_weight,lightweight_general,
+inclusionAI/Ling-mini-2.0,InclusionAI (Ant-backed),Chinese,Ling / Ring,open_weight,lightweight_general,
+inclusionAI/Ring-flash-2.0,InclusionAI (Ant-backed),Chinese,Ling / Ring,open_weight,lightweight_general,
+kimi-k2-0711,Moonshot AI,Chinese,Kimi,closed_api,general,
+kimi-k2-thinking,Moonshot AI,Chinese,Kimi,closed_api,reasoning_specialized,
+kimi-k2.5,Moonshot AI,Chinese,Kimi,closed_api,general,
+llama-3.3-70b,Meta,Western,Llama,open_weight,general,
+llama3.1-8b,Meta,Western,Llama,open_weight,general,
+minimax-m2.1,MiniMax,Chinese,MiniMax,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+minimax-m2.5,MiniMax,Chinese,MiniMax,mixed_or_unknown,lightweight_general,Check deployment mode/open-weight status for this specific variant
+o4-mini,OpenAI,Western,GPT/o,closed_api,lightweight_general,
+qwen2.5-32b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen2.5-3b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen2.5-72b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen3-max,Alibaba Cloud,Chinese,Qwen,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
+qwen3-next-80b-a3b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen3-next-80b-a3b-thinking,Alibaba Cloud,Chinese,Qwen,open_weight,reasoning_specialized,
+qwen3-vl-235b-a22b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen3-vl-235b-a22b-thinking,Alibaba Cloud,Chinese,Qwen,open_weight,reasoning_specialized,
+qwen3-vl-30b-a3b-instruct,Alibaba Cloud,Chinese,Qwen,open_weight,general,
+qwen3-vl-30b-a3b-thinking,Alibaba Cloud,Chinese,Qwen,open_weight,reasoning_specialized,
+qwen3.5-plus,Alibaba Cloud,Chinese,Qwen,mixed_or_unknown,general,Check deployment mode/open-weight status for this specific variant
