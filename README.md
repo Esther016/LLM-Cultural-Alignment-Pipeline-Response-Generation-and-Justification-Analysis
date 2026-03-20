@@ -1,77 +1,140 @@
-# 🚀 Cross-Cultural LLM Orchestration Pipeline  
+# LLM Cultural Alignment Pipeline: Response Generation and Justification Analysis
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Status](https://img.shields.io/badge/Status-Research_Prototype-green) 
+![Focus](https://img.shields.io/badge/Focus-Bilingual_Inference_%2B_Justification_Analysis-orange)
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)  
-![Status](https://img.shields.io/badge/Status-Research_Prototype-green)  
-![Focus](https://img.shields.io/badge/Focus-High_Throughput_Inference-orange)  
+## Abstract
 
-## 📖 Abstract  
+This repository hosts a research pipeline for computational social science studies on cross-cultural alignment in Large Language Models (LLMs). It retains the original **Batch Inference Orchestrator** for bilingual response generation and also includes a formal **justification analysis module** for the same political questions and model outputs.
 
-This repository hosts a robust **Batch Inference Orchestrator** designed for Computational Social Science research. It facilitates high-concurrency interactions with heterogeneous Large Language Models (LLMs) via the Aihubmix aggregator.  
+The project therefore has two connected layers:
 
-The framework was engineered to support **comparative analysis studies**, specifically enabling simultaneous bilingual (English & Chinese) querying across diverse model architectures (e.g., GPT-4, Claude, Qwen, Llama) to quantify cross-cultural alignment and geopolitical and ideological biases.  
+1. **Response Generation Pipeline** for bilingual political prompting and model response collection
+2. **Justification Analysis Module** for downstream comparison of justification patterns across:
+   - Chinese-origin vs Western-origin models
+   - English vs Chinese input language
+   - pressure vs no-pressure condition
 
-## ✨ Key Features  
+The main justification-analysis result layers are:
 
-* **⚡ High-Concurrency Architecture**: Utilizes `ThreadPoolExecutor` for asynchronous I/O, allowing parallel processing of large-scale datasets significantly faster than sequential methods.  
-* **🌐 Bilingual Alignment Support**: Native handling of paired prompts (`Prompt_EN` / `Prompt_CN`), ensuring strict correspondence for cross-lingual evaluation tasks.  
-* **🛡️ Robustness**:  
-    * **Automatic Retry Logic**: Implements exponential backoff strategies to handle API rate limits and transient network failures.  
-    * **Data Sanitization**: Specialized pre-processing to handle Excel-incompatible characters (via `ILLEGAL_CHARACTERS_RE`) ensuring data integrity.  
-    * **State Persistence**: Real-time intermediate saving prevents data loss during long-running batch jobs.  
-* **🔌 Model Agnostic**: Seamless switching between proprietary models (OpenAI, Gemini) and open-weights models (Llama 3, Qwen) via unified API routing.  
+- `G1`: semantic drift under pressure
+- `G3`: framing sensitivity
+- `G4`: cross-lingual reframing / consistency
+- `G5`: rhetorical compression
 
-## 🛠️ System Architecture  
+`G2` remains exploratory only and is not used for the main claims.
+
+## ✨ Key Features
+
+### Response Generation
+
+- **High-Concurrency Architecture**: Supports asynchronous batch inference across heterogeneous LLMs.
+- **Bilingual Alignment Support**: Native handling of paired prompt fields for English and Chinese comparative studies.
+- **Robustness**: Retry logic, intermediate saving, and data sanitization for long-running inference jobs.
+- **Model-Agnostic Routing**: Compatible with multiple proprietary and open-weight models through a unified API-style interface.
+
+### Justification Analysis
+
+- **Same-Question Comparative Design**: Uses the same political questions to compare justification differences rather than only raw responses.
+- **Conditioned Comparison**: Tracks model origin group, language condition, and pressure condition in one analysis workflow.
+- **Structured Result Layers**: Produces grouped summaries and figures for `G1`, `G3`, `G4`, and `G5`.
+- **Research-Oriented Outputs**: Separates main-result tables and figures from diagnostic, QA, and legacy materials.
+
+## System Architecture
 
 ```text
-├── llm_aihubmix.py                     # Core Orchestration Engine
-├── requirements.txt                    # Dependency Manifest
-├── Data Sample/                        # Sample Dataset Folder
-│   ├── AllQuestions-sample-politics.xlsx
-|   ├── AllQuestions-sample-personality.xlsx
-│   └── Sample_Outcome_Politics_Part1_aihub_temp0.2.xlsx
-├── .env.example                        # Configuration Template
-├── .gitignore                          # Security Rules
-└── outputs/                            # Structured Data Lake (Auto-generated)
-    └── AllQuestions_aihub_temp0.7.xlsx
+.
++-- README.md
++-- llm_aihubmix.py                          # Core response-generation engine
++-- requirements.txt                        # Dependency manifest
++-- Data Sample/                            # Sample generation inputs / outputs
++-- justification_analysis/
+    +-- README.md
+    +-- pipeline/
+    |   +-- 01_run_core_from_rdata.py
+    |   +-- 02_postprocess_final_tables.py
+    |   +-- 03_build_css_group_tables.py
+    |   |-- 04_plot_css_main_results.py
+    +-- config/
+    |   +-- config_justification.json
+    |   +-- model_metadata.csv
+    |   \-- AllQuestions.xlsx
+    +-- results/
+    |   +-- main_tables/
+    |   +-- main_figures/
+    +-- justification_utils.py
+    +-- justification_config.py
+    |-- g4_strict.py
 ```
 
-## 🚀 Getting Started  
+At the GitHub presentation level, the repository should be read as a single research repo with:
 
-### Prerequisites  
-- Python 3.8+  
-- A valid API Key from Aihubmix (or compatible OpenAI-format provider)  
+- an upstream **response generation** layer
+- a downstream **justification analysis** layer
 
-### Installation  
+## Getting Started
 
-#### Clone the Repository  
+### Prerequisites
+
+- Python 3.8+
+- A valid API key from Aihubmix or another compatible OpenAI-format provider for response generation
+
+### Installation
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/Esther016/LLM-Cultural-Alignment-Pipeline.git
 cd LLM-Cultural-Alignment-Pipeline
 ```
 
-#### Environment Setup  
-Install dependencies via the manifest file:  
+Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Security Configuration  
-Create a `.env` file to securely store credentials (**never commit this file**):  
+### Security Configuration
+
+Create a local `.env` file for API credentials and do not commit it:
+
 ```env
-# .env file (add to .gitignore!)
 AIHUBMIX_API_KEY=sk-xxxxxxxxxxxxxxxxx
 ```
 
-## 📊 Usage Pipeline  
+## Usage Pipeline
 
-### 1. Data Preparation  
+### 1. Response Generation Pipeline
+
+The original generation layer remains the first stage of the project.
+
+Core files and folders:
+
+- `llm_aihubmix.py`
+- `requirements.txt`
+- `Data Sample/`
+- `outputs/`
+
+Prepare an input file with bilingual prompt fields and run:
+
+```bash
+python llm_aihubmix.py 0.7
+```
+
+This stage produces structured model-response outputs, typically with paired columns such as:
+
+- `{Model_Name}` for English responses
+- `{Model_Name}_CN` for Chinese responses
+
+**Data Preparation**
+
 Prepare an input Excel file (default: `AllQuestions.xlsx`) with the following schema to support comparative studies:  
 
 | Prompt               | Prompt_CN           | Question             | Question_CN          |  
 |----------------------|---------------------|----------------------|----------------------|  
 | System instruction...| 系统指令...         | Input question...    | 输入问题...          |  
 
-### 2. Execution  
+**Execution**
+
 Run the orchestrator with a specified temperature parameter to control generation stochasticity:  
 ```bash
 # Syntax: python script_name.py [temperature]
@@ -79,7 +142,8 @@ python llm_aihubmix.py 0.7
 ```  
 - **Temperature**: Float (0.0–1.0). Lower values (e.g., 0.2) for factual extraction; higher values (e.g., 0.7) for creative/ideological simulations.  
 
-### 3. Output Analysis  
+**Output Analysis**
+
 Results are automatically aggregated into the `outputs/` directory. The engine generates comparative columns for each model:  
 - `{Model_Name}`: English Response  
 - `{Model_Name}_CN`: Chinese Response
@@ -88,7 +152,7 @@ The sample result is in the folder `Data Sample`
 
 <img src="https://github.com/Esther016/LLM-Cultural-Alignment-Pipeline/blob/main/image/sample-outcome.png?raw=true" alt="sample-outcome-screenshot" width="800">
 
-## ⚙️ Advanced Configuration  
+#### ⚙️ Advanced Configuration  
 
 Researchers can fine-tune pipeline parameters directly in the script for experimental customization:  
 
@@ -99,31 +163,107 @@ Researchers can fine-tune pipeline parameters directly in the script for experim
 | `MAX_WORKERS`   | 5       | Thread pool size. Increase for higher throughput (monitor API rate limits).  |  
 | `TIMEOUT`       | 120s    | Max wait time per API call before triggering retry logic.                   |  
 
-## 📂 Dataset & Privacy Note
+---
 
-**Note on Data Availability:**
-This repository contains the **automation framework** developed for the research project. Due to ongoing publication processes and confidentiality agreements, the full dataset (2000+ questions) and the generated inference results are **not included**.
+### 2. Justification Analysis Module
 
-A `sample_dataset.xlsx` structure is provided in the `data/` folder for demonstration purposes. It contains the required schema:
-* **Sheet 1**: `Politics` (Columns: `English Question`, `Chinese Question`)
-* **Sheet 2**: `Personality` (Columns: `English Question`, `Chinese Question`)
+The second stage is the downstream justification analysis module for the same political questions.
 
-## 🤝 Contribution  
+Main analysis pipeline:
 
-This tool was originally developed for undergraduate research in Data Science & Political Science Alignment. Contributions to improve scheduler efficiency or add visualization modules are welcome:  
+- `justification_analysis/pipeline/01_run_core_from_rdata.py`
+- `justification_analysis/pipeline/02_postprocess_final_tables.py`
+- `justification_analysis/pipeline/03_build_css_group_tables.py`
+- `justification_analysis/pipeline/04_plot_css_main_results.py`
 
-1. Fork the Project  
-2. Create your Feature Branch (`git checkout -b feature/Optimization`)  
-3. Commit your Changes (`git commit -m 'Add visualization module'`)  
-4. Push to the Branch  
-5. Open a Pull Request  
+Supporting files:
 
-## 📜 Disclaimer  
+- `justification_analysis/config/config_justification.json`
+- `justification_analysis/config/model_metadata.csv`
+- `justification_analysis/config/AllQuestions.xlsx`
+- `justification_analysis/justification_utils.py`
+- `justification_analysis/justification_config.py`
+- `justification_analysis/g4_strict.py`
 
-This tool is for academic research purposes only. Users are responsible for adhering to the Terms of Service of respective LLM providers.  
+Recommended execution flow:
 
----  
+```bash
+python justification_analysis/pipeline/01_run_core_from_rdata.py --config justification_analysis/config/config_justification.json
+python justification_analysis/pipeline/02_postprocess_final_tables.py --config justification_analysis/config/config_justification.json
+python justification_analysis/pipeline/03_build_css_group_tables.py --config justification_analysis/config/config_justification.json --model-metadata justification_analysis/config/model_metadata.csv --question-metadata justification_analysis/config/AllQuestions.xlsx
+python justification_analysis/pipeline/04_plot_css_main_results.py --config justification_analysis/config/config_justification.json
+```
 
+Conceptually, the full workflow is:
 
+`bilingual prompting -> model responses -> justification-derived input -> core analysis -> postprocessing -> grouped summary tables -> main figures`
 
-*Designed for reproducible computational social science — enabling rigorous cross-cultural LLM analysis at scale.*
+## Main Findings
+
+For GitHub presentation, only the main analysis layers should be surfaced in the README:
+
+- `G1`: pressure-induced semantic drift
+- `G3`: framing sensitivity
+- `G4`: cross-lingual reframing / consistency
+- `G5`: rhetorical compression / style drift
+
+Recommended main figures:
+
+- `justification_analysis/results/main_figures/g1_drift_by_lang_origin_group_groupedbar.png`
+- `justification_analysis/results/main_figures/g4_translation_vs_reframing_by_origin_group.png`
+- `justification_analysis/results/main_figures/g4_crosslingual_inconsistency_by_origin_group.png`
+- `justification_analysis/results/main_figures/g4_translation_reframing_slope_by_origin_group.png`
+- `justification_analysis/results/main_figures/g5_length_compression_lang_origin_group_faceted.png`
+
+Optional supporting figure:
+
+- `justification_analysis/results/main_figures/g3_abs_shift_axis_lang_origin_group_faceted.png`
+
+Main summary tables to reference:
+
+- `justification_analysis/results/main_tables/g1_by_lang_origin_group_summary.csv`
+- `justification_analysis/results/main_tables/g3_by_axis_lang_origin_group_summary.csv`
+- `justification_analysis/results/main_tables/g4_by_origin_group_summary.csv`
+- `justification_analysis/results/main_tables/g5_by_metric_lang_origin_group_summary.csv`
+
+`qa/`, `archive/`, legacy materials, and exploratory `G2` outputs should not be presented as main findings.
+
+## ⚙️ Advanced Configuration
+
+### Response Generation
+
+Researchers may still tune generation-stage parameters in the orchestration layer, including model lists, batching strategy, worker count, and timeout settings.
+
+### Justification Analysis
+
+The analysis-stage configuration is managed through:
+
+- `justification_analysis/config/config_justification.json`
+- `justification_analysis/config/model_metadata.csv`
+- `justification_analysis/config/AllQuestions.xlsx`
+
+This layer controls analysis paths, thresholds, metadata joins, grouped summaries, and figure generation, while keeping the statistical logic of the main pipeline intact.
+
+## Dataset & Privacy Note
+
+This repository should be understood as a research repository that includes:
+
+- a bilingual response-generation framework
+- a justification-analysis module
+- selected main-result tables and figures
+
+It should not be interpreted as a guarantee that the full raw response archive or all intermediate study data are publicly redistributed.
+
+The justification-analysis stage depends on processed or derived inputs built from response data. Sample materials may be included for demonstration and transparency, but not all source materials need to be public.
+
+## Contribution
+
+This repository was developed for research on cross-cultural LLM alignment and justification-level political text analysis. Contributions that improve orchestration robustness, reproducibility, result presentation, or analysis usability are welcome.
+
+## Disclaimer
+
+This project is intended for academic research purposes. Users are responsible for complying with the terms of service and usage policies of the respective model providers.
+
+---
+
+*Designed for reproducible computational social science, from bilingual LLM response generation to justification-level comparative analysis.*
